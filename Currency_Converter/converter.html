@@ -1,0 +1,25 @@
+<script src="https://unpkg.com/vue"></script>
+<h5>Inflation Converter</h5>
+<div id="app">
+  
+<select v-model="selected" >
+<option v-for="i in countries" v-bind:value="i.avgInfl">{{i.flag}} {{i.name}} {{i.currencySign}}</option>
+</select>
+<input type="number" v-model="amount_to_convert"><br/>
+<input type="number" v-model="startYear"><input type="number" v-model="endYear">
+
+<p>$ {{amount_to_convert}} in {{startYear}} is equivalent to $<span>{{Math.pow((1 + selected), (endYear - startYear)).toFixed(2) * amount_to_convert}}</span> in {{endYear}}</p>
+
+<!--((startyear - endYear) * selected) + amount_to_convert = new_amount
+<p>
+{{Math.pow((1 + selected), (endYear - startYear)) * amount_to_convert}}
+</p>-->
+<h1>{{selected}}</h1>
+
+
+
+
+
+
+
+</div>
